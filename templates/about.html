@@ -1,4 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>About Page</h2>
+    <h2>{{ page_title }}</h2>
+    {% for name in teachers %}
+    <p>{{ name }}</p>
+    {% endfor %}
+    <p>
+        Välkommen till Kulturskolan i Älmhult!
+        Vi erbjuder kurser i musik, dans, bild, teater, foto och slöjd för barn och ungdomar mellan 0-20 år som bor i Älmhults
+        kommun.
+        
+        Anmälan till Kulturskolan hösten 2023
+        Nu laddar vi för höstens kurssläpp! Fredagen den 16 juni klockan 12.00 kan ni anmäla er till höstens kurser på
+        Kulturskolan. Anmälan görs via länken nedan.
+    </p>
+    <div class="row-fetaurette">
+        <div class="col-md-7">
+            <h3> Summer Program</h3>
+            <p>
+                Sommarprogram 2023
+                Det är alltid lika roligt att kunna erbjuda gratis sommarlovskurser hos oss på Kulturskolan i Älmhult. Kurser och
+                program hitttar du längre ner på sidan. För att anmäla dig skriv ett mejl till Maja Claesson.
+                maja.claesson@almhult.se
+                
+                För anmälan i år är det extra viktigt att skriva följande:
+                
+                1. Döp ditt mejl till "Anmälan sommarlovskulturskola - Elevens namn"
+                2. Förnamn och efternamn samt personnummer på eleven
+                3. Vilken kurs eleven vill gå, viktigt att skriva in både dag och tid.
+                4. Telefonnummer och mejladress till vårdnadshavare som anmäler eleven.
+                5. Telefonnummer till vårdnadshavare som går att nås under tiden workshopen är.
+            </p>
+        </div>
+    </div>
+    <div class="row-featurette">
+        <div class="col-md-5">
+            <img src="https://www.icehotel.com/sites/cb_icehotel/files/styles/image_column_large/public/Icehotel-365-entrance-summer.jpg" alt="">
+        </div>
+    </div>
 {% endblock %}
