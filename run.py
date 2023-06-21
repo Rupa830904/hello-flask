@@ -1,8 +1,12 @@
 import os
-from flask import Flask, render_template
-
+import json
+from flask import Flask, render_template, request, flash
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
+
 
 
 @app.route("/")
@@ -12,12 +16,30 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About", teachers = ["Jennie","Rupa","Ingla","Michelle"])
+    data = []
+    with open("data/teachers.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("about.html", page_title="About", teachers=data)
+
+@app.route("/about/<teacher_name>")
+def about_teacher(teacher_name):
+    teacher = {}
+    with open("data/teachers.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == teacher_name:
+                teacher = obj
+    return render_template("teacher.html", teacher=teacher)
+    #return "<h1>" + member["name"] + "</h1>"
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html", page_title="Contact")
+    if request.method == "POST":
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
+        flash("We will contact you at".format(request.form.get("email")))
+    return render_template("contact.html", page_title="Contact" )
 
 @app.route("/careers")
 def careers():

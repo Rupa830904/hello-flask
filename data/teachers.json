@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Jennie Winqvist",
+      "description": "The Head of Kulturskolan.",
+      "image_source": "https://static-cdn.sr.se/images/106/2af6f941-391c-4baa-ae70-24541700ed2e.jpg",
+      "phone" : "0789564322",
+      "url" : "Jennie"
+    },
+    {
+      "name": "Rupa Pal",
+      "description": "The Indian Dance Teacher",
+      "image_source": "https://media.cnn.com/api/v1/images/stellar/prod/181107132423-india-dance-promo.jpg",
+      "phone" : "0789564452",
+      "url" : "Rupa"
+    }
+  ]
